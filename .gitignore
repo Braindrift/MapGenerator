@@ -1,0 +1,12 @@
+# Build output
+MapGenerator/out/
+
+# Visual Studio
+.vs/
+*.user
+
+# Compiled binaries
+*.exe
+*.pdb
+*.ilk
+*.obj

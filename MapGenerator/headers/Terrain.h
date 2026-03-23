@@ -80,14 +80,14 @@ inline TerrainType classifyTerrain(float e, float t, float m)
     // Ocean
     if (e < 0.40f)
     {
-        if (t < 0.15f) return TerrainType::FrozenOcean;
+        if (t < 0.10f) return TerrainType::FrozenOcean;
         if (e < 0.32f) return TerrainType::DeepOcean;
         return TerrainType::ShallowWater;
     }
     // Shallow coastal
     if (e < 0.48f)
     {
-        if (t < 0.15f) return TerrainType::FrozenOcean;
+        if (t < 0.10f) return TerrainType::FrozenOcean;
         return TerrainType::ShallowWater;
     }
     // Shore
@@ -102,7 +102,7 @@ inline TerrainType classifyTerrain(float e, float t, float m)
         if (t < 0.15f) return TerrainType::Tundra;
         if (t < 0.30f) return TerrainType::BorealForest;
         if (t < 0.55f) return m > 0.45f ? TerrainType::TemperateForest : TerrainType::Grassland;
-        if (t < 0.75f) return m > 0.45f ? TerrainType::Shrubland      : TerrainType::Savanna;
+        if (t < 0.65f) return m > 0.45f ? TerrainType::Shrubland      : TerrainType::Savanna;
         return              m > 0.50f ? TerrainType::TropicalForest    : TerrainType::Desert;
     }
     // Hills

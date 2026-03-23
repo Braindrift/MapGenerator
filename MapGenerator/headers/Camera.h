@@ -4,8 +4,10 @@
 class Camera
 {
 public:
-    explicit Camera(sf::Vector2u windowSize);
+    Camera(sf::Vector2u windowSize, float mapPanelRatio);
 
+    void focusOn(float worldPixelWidth, float worldPixelHeight);
+    void onWindowResize(unsigned w, unsigned h);
     void handleScroll(float delta, sf::Vector2i mousePos, const sf::RenderWindow& window);
     void beginDrag(sf::Vector2i screenPos);
     void updateDrag(sf::Vector2i screenPos, const sf::RenderWindow& window);
@@ -17,6 +19,9 @@ public:
 
 private:
     sf::View     m_view;
+    float        m_aspectRatio;
+    float        m_mapPanelRatio;
+    float        m_maxViewHeight = 4000.f;
     bool         m_dragging = false;
     sf::Vector2i m_lastDragPos;
 };

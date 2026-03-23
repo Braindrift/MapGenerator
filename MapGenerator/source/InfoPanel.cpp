@@ -20,6 +20,12 @@ void InfoPanel::clearSelection()
     m_selected.reset();
 }
 
+void InfoPanel::setOrigin(float x, float y)
+{
+    m_originX = x;
+    m_originY = y;
+}
+
 void InfoPanel::draw(sf::RenderWindow& window) const
 {
     sf::RectangleShape bg(sf::Vector2f(239.f, 135.f));

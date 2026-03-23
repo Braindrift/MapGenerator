@@ -22,6 +22,7 @@ public:
 
     void setSelectedTile(int x, int y, const Tile& tile);
     void clearSelection();
+    void setOrigin(float x, float y);
     void draw(sf::RenderWindow& window) const;
 
 private:

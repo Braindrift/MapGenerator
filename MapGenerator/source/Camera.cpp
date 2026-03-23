@@ -1,27 +1,51 @@
 #include "Camera.h"
 #include <algorithm>
 
-Camera::Camera(sf::Vector2u windowSize)
+Camera::Camera(sf::Vector2u windowSize, float mapPanelRatio)
+    : m_aspectRatio((windowSize.x * mapPanelRatio) / static_cast<float>(windowSize.y))
+    , m_mapPanelRatio(mapPanelRatio)
 {
     m_view = sf::View(sf::FloatRect(
         { 0.f, 0.f },
         { static_cast<float>(windowSize.x), static_cast<float>(windowSize.y) }
     ));
+    m_view.setViewport(sf::FloatRect({ 0.f, 0.f }, { mapPanelRatio, 1.f }));
+}
+
+void Camera::focusOn(float worldPixelWidth, float worldPixelHeight)
+{
+    m_maxViewHeight = worldPixelHeight * 1.5f;
+
+    float viewH = worldPixelHeight;
+    float viewW = viewH * m_aspectRatio;
+    if (worldPixelWidth > viewW)
+    {
+        viewW = worldPixelWidth;
+        viewH = viewW / m_aspectRatio;
+    }
+
+    m_view.setSize({ viewW, viewH });
+    m_view.setCenter({ worldPixelWidth * 0.5f, worldPixelHeight * 0.5f });
+    m_view.setViewport(sf::FloatRect({ 0.f, 0.f }, { m_mapPanelRatio, 1.f }));
+}
+
+void Camera::onWindowResize(unsigned w, unsigned h)
+{
+    m_aspectRatio = (w * m_mapPanelRatio) / static_cast<float>(h);
+    const float currentHeight = m_view.getSize().y;
+    m_view.setSize({ currentHeight * m_aspectRatio, currentHeight });
+    m_view.setViewport(sf::FloatRect({ 0.f, 0.f }, { m_mapPanelRatio, 1.f }));
 }
 
 void Camera::handleScroll(float delta, sf::Vector2i mousePos, const sf::RenderWindow& window)
 {
     const float factor = delta > 0 ? 0.85f : 1.15f;
 
-    // World point under the cursor before zoom
     sf::Vector2f before = window.mapPixelToCoords(mousePos, m_view);
 
-    sf::Vector2f newSize = m_view.getSize() * factor;
-    newSize.x = std::clamp(newSize.x, 64.f, 4000.f);
-    newSize.y = std::clamp(newSize.y, 64.f, 4000.f);
-    m_view.setSize(newSize);
+    float newHeight = std::clamp(m_view.getSize().y * factor, 64.f, m_maxViewHeight);
+    m_view.setSize({ newHeight * m_aspectRatio, newHeight });
 
-    // Move view so the same world point stays under the cursor
     sf::Vector2f after = window.mapPixelToCoords(mousePos, m_view);
     m_view.move(before - after);
 }

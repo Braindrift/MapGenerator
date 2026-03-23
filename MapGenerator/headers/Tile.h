@@ -10,4 +10,5 @@ public:
     float       moisture    = 0.0f;  // 0.0 = arid, 1.0 = wet
     TerrainType terrain     = TerrainType::DeepOcean;
     sf::Color   color;
+    int         plateId     = 0;
 };

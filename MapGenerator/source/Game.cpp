@@ -175,9 +175,19 @@ void Game::renderControls()
     }
 
     ImGui::Separator();
-    const bool inHeightMap = (world.getRenderMode() == World::RenderMode::HeightMap);
-    if (ImGui::Button(inHeightMap ? "View: Height Map" : "View: Tectonic Plates", ImVec2(-1.f, 0.f)))
-        world.setRenderMode(inHeightMap ? World::RenderMode::TectonicPlates : World::RenderMode::HeightMap);
+    const auto curMode = world.getRenderMode();
+    const char* modeLabel =
+        curMode == World::RenderMode::TectonicPlates ? "View: Tectonic Plates" :
+        curMode == World::RenderMode::HeightMap      ? "View: Height Map"      :
+                                                       "View: Terrain";
+    if (ImGui::Button(modeLabel, ImVec2(-1.f, 0.f)))
+    {
+        using RM = World::RenderMode;
+        world.setRenderMode(
+            curMode == RM::TectonicPlates ? RM::HeightMap :
+            curMode == RM::HeightMap      ? RM::Terrain   :
+                                            RM::TectonicPlates);
+    }
 
     ImGui::End();
 

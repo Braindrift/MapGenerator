@@ -11,7 +11,7 @@ class World
 public:
     World(int width, int height, int tileSize, unsigned int seed);
 
-    enum class RenderMode { TectonicPlates, HeightMap };
+    enum class RenderMode { TectonicPlates, HeightMap, Terrain };
 
     void initialize();
     void regenerate(unsigned int newSeed);
@@ -73,14 +73,6 @@ private:
         BoundaryType              type;
     };
 
-    // Per-tile record of the nearest boundary edge (built by buildBoundaryField).
-    struct BoundaryField
-    {
-        float        dist;    // distance in tiles (FLT_MAX = none within range)
-        int          plateA, plateB;
-        BoundaryType type;
-    };
-
     int          width;
     int          height;
     int          tileSize;
@@ -89,11 +81,12 @@ private:
     std::vector<Tile>          tiles;
     std::vector<TectonicPlate> m_plates;
     std::vector<BoundaryChain> m_boundaryChains;
-    std::vector<BoundaryField> m_boundaryField;
     sf::Texture                m_plateTexture;
     std::optional<sf::Sprite>  m_plateSprite;
     sf::Texture                m_heightMapTexture;
     std::optional<sf::Sprite>  m_heightMapSprite;
+    sf::Texture                m_terrainTexture;
+    std::optional<sf::Sprite>  m_terrainSprite;
     sf::Font                   m_font;
 
     int                        m_selectedChainIdx = -1;
@@ -116,13 +109,15 @@ private:
     void         drawBoundaryLines(sf::RenderWindow& window);
     void         drawPlateArrows(sf::RenderWindow& window);
 
-    void         buildBoundaryField();
     void         computeElevation();
     void         smoothElevation(int passes = 2, int radius = 3);
     void         applyDetailNoise();
+    void         applyBoundaryNoise();
     void         applyErosion();
     void         bakeHeightMapTexture();
     void         drawHeightMap(sf::RenderWindow& window);
+    void         bakeTerrainTexture();
+    void         drawTerrain(sf::RenderWindow& window);
     void         computeStats();
 
     static sf::Color plateColor(int id);

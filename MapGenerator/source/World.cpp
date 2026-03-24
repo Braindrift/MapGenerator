@@ -4,7 +4,6 @@
 #include <cstdio>
 #include <deque>
 #include <limits>
-#include <queue>
 #include <random>
 #include <unordered_map>
 
@@ -456,13 +455,13 @@ void World::initialize()
     m_selectedChainIdx = -1;
     generatePlates();        // also calls initNoise()
     assignTilePlates();      // populate tile.plateId for UI clicks
-    buildBoundaryField();    // BFS distance field from grid edges — used by computeElevation
+    buildBoundaryChains();   // chain tracing — needed before applyBoundaryNoise
     computeElevation();      // assign elevation from plate type + boundary proximity
     smoothElevation();       // box-blur to soften hard plateau steps at junction endpoints
-    applyDetailNoise();      // medium-frequency FBm to break up flat plate interiors
-    applyErosion();          // thermal erosion — softens steep slopes and noise peaks
+    applyBoundaryNoise();    // scatter circular bumps along convergent/divergent chains
+    applyErosion();          // thermal erosion — softens steep slopes and bump peaks
     bakeHeightMapTexture();  // bake grayscale elevation into a texture for fast rendering
-    buildBoundaryChains();   // grid-independent edge detection + chain tracing
+    bakeTerrainTexture();    // bake terrain colours into a texture for fast rendering
     bakeToPlateTexture();    // per-pixel plateAt() evaluation
 }
 
@@ -475,171 +474,156 @@ void World::setRenderMode(RenderMode mode) { m_renderMode = mode; }
 World::RenderMode World::getRenderMode() const { return m_renderMode; }
 
 // ---------------------------------------------------------------------------
-// Build a per-tile BFS distance field from the actual grid boundary edges.
-// Each tile records: distance (in tiles) to the nearest boundary edge, plus
-// the plate pair and boundary type of that edge.  This lets computeElevation
-// drive ridges/trenches from the same geometry used to draw boundary chains,
-// giving exact visual alignment rather than the approximate Voronoi distances.
-
-void World::buildBoundaryField()
-{
-    const int   W    = width;
-    const int   H    = height;
-    const float fw   = static_cast<float>(W);
-    const float fh   = static_cast<float>(H);
-
-    // BFS expands up to 3·SIGMA tiles from any boundary edge.
-    const float SIGMA_TILES = 0.025f * fw;
-    const int   MAX_DIST    = static_cast<int>(3.f * SIGMA_TILES) + 1;
-
-    const BoundaryField INF{ std::numeric_limits<float>::max(), -1, -1, BoundaryType::None };
-    m_boundaryField.assign(W * H, INF);
-
-    // Plate-id grid (no jitter — same source as buildBoundaryChains).
-    std::vector<int> ids(W * H);
-    for (int ty = 0; ty < H; ++ty)
-        for (int tx = 0; tx < W; ++tx)
-            ids[ty * W + tx] = queryPlate(
-                (static_cast<float>(tx) + 0.5f) / fw,
-                (static_cast<float>(ty) + 0.5f) / fh).id1;
-
-    // Seed both tiles on either side of every boundary edge.
-    std::queue<int> bfsQ;
-    auto seed = [&](int tx, int ty, int pA, int pB, BoundaryType bt)
-    {
-        if ((unsigned)tx >= (unsigned)W || (unsigned)ty >= (unsigned)H) return;
-        int idx = ty * W + tx;
-        if (m_boundaryField[idx].dist > 0.f)
-        {
-            m_boundaryField[idx] = { 0.f, pA, pB, bt };
-            bfsQ.push(idx);
-        }
-    };
-
-    for (int ty = 0; ty < H; ++ty)
-        for (int tx = 0; tx < W; ++tx)
-        {
-            int id = ids[ty * W + tx];
-            if (tx + 1 < W)
-            {
-                int idR = ids[ty * W + tx + 1];
-                if (idR != id)
-                {
-                    BoundaryType bt = boundaryBetween(id, idR);
-                    seed(tx,   ty, std::min(id,idR), std::max(id,idR), bt);
-                    seed(tx+1, ty, std::min(id,idR), std::max(id,idR), bt);
-                }
-            }
-            if (ty + 1 < H)
-            {
-                int idB = ids[(ty+1) * W + tx];
-                if (idB != id)
-                {
-                    BoundaryType bt = boundaryBetween(id, idB);
-                    seed(tx, ty,   std::min(id,idB), std::max(id,idB), bt);
-                    seed(tx, ty+1, std::min(id,idB), std::max(id,idB), bt);
-                }
-            }
-        }
-
-    // BFS expansion — 4-connected, integer tile steps.
-    const int dx4[] = { 1, -1,  0,  0 };
-    const int dy4[] = { 0,  0,  1, -1 };
-    while (!bfsQ.empty())
-    {
-        int idx = bfsQ.front(); bfsQ.pop();
-        float d = m_boundaryField[idx].dist;
-        if (d >= MAX_DIST) continue;
-        int tx = idx % W, ty = idx / W;
-        for (int k = 0; k < 4; ++k)
-        {
-            int nx2 = tx + dx4[k], ny2 = ty + dy4[k];
-            if ((unsigned)nx2 >= (unsigned)W || (unsigned)ny2 >= (unsigned)H) continue;
-            int nidx = ny2 * W + nx2;
-            if (m_boundaryField[nidx].dist > d + 1.f)
-            {
-                m_boundaryField[nidx] = { d + 1.f,
-                    m_boundaryField[idx].plateA,
-                    m_boundaryField[idx].plateB,
-                    m_boundaryField[idx].type };
-                bfsQ.push(nidx);
-            }
-        }
-    }
-}
-
-// ---------------------------------------------------------------------------
-// Stage 3 — Assign elevation per tile from plate type and boundary proximity.
-// Uses m_boundaryField (built by buildBoundaryField) so that ridges and
-// trenches follow the same grid edges as the drawn boundary chains.
+// Stage 3 — Assign elevation per tile using a Gaussian splat from each
+// boundary edge.  SIGMA controls ridge/trench half-width in tiles.
+//
+// For every boundary edge in the plate-id grid, the bell contribution is
+// accumulated into all tiles within 3·SIGMA.  Only tiles whose plate ID
+// matches one of the edge's two plate IDs receive the contribution, which
+// prevents phantom ridges from leaking into unrelated plate territory.
+// At triple junctions multiple edges overlap and their weighted average
+// produces a smooth gradient blend rather than a hard seam.
+//
+// Bell lookup tables (bellR / bellB) are precomputed once per call so
+// that std::exp() is not called inside the hot loop.
 
 void World::computeElevation()
 {
-    const float SIGMA_TILES = 0.025f * static_cast<float>(width);
-    const float SIGMA2      = SIGMA_TILES * SIGMA_TILES;
-    const float fw          = static_cast<float>(width);
-    const float fh          = static_cast<float>(height);
+    const float SIGMA  = 4.0f;              // ridge half-width in tiles
+    const float SIGMA2 = SIGMA * SIGMA;
+    const int   RADIUS = static_cast<int>(3.0f * SIGMA) + 1;  // = 13
+    const int   TS     = 2 * RADIUS + 1;   // lookup table side length
 
+    const float fw = static_cast<float>(width);
+    const float fh = static_cast<float>(height);
+
+    // Plate-id grid (no jitter — same source as buildBoundaryChains).
+    std::vector<int> ids(width * height);
     for (int ty = 0; ty < height; ++ty)
+        for (int tx = 0; tx < width; ++tx)
+            ids[ty * width + tx] = queryPlate(
+                (static_cast<float>(tx) + 0.5f) / fw,
+                (static_cast<float>(ty) + 0.5f) / fh).id1;
+
+    // Precompute bell values for the two edge orientations.
+    // Right edge midpoint at (tx+1, ty+0.5): tile offset dx=dsx+0.5, dy=dsy.
+    // Bottom edge midpoint at (tx+0.5, ty+1): tile offset dx=dsx, dy=dsy+0.5.
+    const float RADIUS2 = static_cast<float>(RADIUS * RADIUS);
+    std::vector<float> bellR(TS * TS, 0.f);
+    std::vector<float> bellB(TS * TS, 0.f);
+    for (int dsy = -RADIUS; dsy <= RADIUS; ++dsy)
+        for (int dsx = -RADIUS; dsx <= RADIUS; ++dsx)
+        {
+            int   i   = (dsy + RADIUS) * TS + (dsx + RADIUS);
+            float fR  = static_cast<float>(dsx) + 0.5f;
+            float gR  = static_cast<float>(dsy);
+            float fB  = static_cast<float>(dsx);
+            float gB  = static_cast<float>(dsy) + 0.5f;
+            float dR2 = fR*fR + gR*gR;
+            float dB2 = fB*fB + gB*gB;
+            if (dR2 < RADIUS2) { float v = std::exp(-dR2 / SIGMA2); if (v > 0.001f) bellR[i] = v; }
+            if (dB2 < RADIUS2) { float v = std::exp(-dB2 / SIGMA2); if (v > 0.001f) bellB[i] = v; }
+        }
+
+    // Modifier: boundary type × plate oceanicity → elevation delta.
+    auto getModifier = [](BoundaryType bt, bool thisOc, bool otherOc) -> float
     {
+        if (bt == BoundaryType::Convergent)
+        {
+            if (!thisOc && !otherOc) return +0.40f;
+            if (!thisOc &&  otherOc) return +0.40f;
+            if ( thisOc && !otherOc) return +0.65f;
+            return +0.30f;
+        }
+        if (bt == BoundaryType::Divergent)
+        {
+            if (!thisOc && !otherOc) return -0.20f;
+            if ( thisOc &&  otherOc) return -0.10f;
+        }
+        return 0.f;
+    };
+
+    // Per-tile weighted modifier accumulators.
+    std::vector<float> totalMod(width * height, 0.f);
+    std::vector<float> totalWeight(width * height, 0.f);
+
+    // Splat every boundary edge onto tiles within RADIUS.
+    for (int ty = 0; ty < height; ++ty)
         for (int tx = 0; tx < width; ++tx)
         {
-            float nx = (static_cast<float>(tx) + 0.5f) / fw;
-            float ny = (static_cast<float>(ty) + 0.5f) / fh;
+            int id = ids[ty * width + tx];
 
-            // Tile's plate (no jitter — matches boundary field source).
-            int pid = queryPlate(nx, ny).id1;
-
-            float base     = m_plates[pid].oceanic ? 0.20f : 0.60f;
-            float modifier = 0.f;
-
-            const BoundaryField& bf = m_boundaryField[ty * width + tx];
-            if (bf.plateA >= 0 && bf.dist < std::numeric_limits<float>::max())
+            // --- Right edge (vertical) between (tx,ty) and (tx+1,ty) ---
+            if (tx + 1 < width)
             {
-                float bell = std::exp(-(bf.dist * bf.dist) / SIGMA2);
-                if (bell > 0.001f)
+                int idR = ids[ty * width + tx + 1];
+                if (idR != id)
                 {
-                    // Determine which side of the boundary this tile is on.
-                    bool thisOceanic, otherOceanic;
-                    if (pid == bf.plateA)
+                    BoundaryType bt = boundaryBetween(id, idR);
+                    for (int dsy = -RADIUS; dsy <= RADIUS; ++dsy)
                     {
-                        thisOceanic  = m_plates[bf.plateA].oceanic;
-                        otherOceanic = m_plates[bf.plateB].oceanic;
+                        int sy = ty + dsy;
+                        if (sy < 0 || sy >= height) continue;
+                        for (int dsx = -RADIUS; dsx <= RADIUS; ++dsx)
+                        {
+                            float b = bellR[(dsy + RADIUS) * TS + (dsx + RADIUS)];
+                            if (b == 0.f) continue;
+                            int sxw = ((tx + 1 + dsx) % width + width) % width;
+                            int pid = ids[sy * width + sxw];
+                            if (pid != id && pid != idR) continue;
+                            bool thisOc  = m_plates[pid].oceanic;
+                            bool otherOc = (pid == id) ? m_plates[idR].oceanic : m_plates[id].oceanic;
+                            float mod = getModifier(bt, thisOc, otherOc);
+                            if (mod == 0.f) continue;
+                            int tidx = sy * width + sxw;
+                            totalMod[tidx]    += mod * b;
+                            totalWeight[tidx] += b;
+                        }
                     }
-                    else if (pid == bf.plateB)
-                    {
-                        thisOceanic  = m_plates[bf.plateB].oceanic;
-                        otherOceanic = m_plates[bf.plateA].oceanic;
-                    }
-                    else
-                    {
-                        // Tile is not a member of this boundary's plate pair
-                        // (can happen in small gaps at complex junctions — skip).
-                        tileAt(tx, ty).elevation = base;
-                        continue;
-                    }
-
-                    if (bf.type == BoundaryType::Convergent)
-                    {
-                        if      (!thisOceanic && !otherOceanic) modifier = +0.40f;
-                        else if (!thisOceanic &&  otherOceanic) modifier = +0.40f;
-                        else if ( thisOceanic && !otherOceanic) modifier = +0.65f;
-                        else                                    modifier = +0.30f;
-                    }
-                    else if (bf.type == BoundaryType::Divergent)
-                    {
-                        if      (!thisOceanic && !otherOceanic) modifier = -0.20f;
-                        else if ( thisOceanic &&  otherOceanic) modifier = -0.10f;
-                    }
-                    // Transform: no modifier
-
-                    modifier *= bell;
                 }
             }
 
-            tileAt(tx, ty).elevation = std::clamp(base + modifier, 0.f, 1.f);
+            // --- Bottom edge (horizontal) between (tx,ty) and (tx,ty+1) ---
+            if (ty + 1 < height)
+            {
+                int idB = ids[(ty + 1) * width + tx];
+                if (idB != id)
+                {
+                    BoundaryType bt = boundaryBetween(id, idB);
+                    for (int dsy = -RADIUS; dsy <= RADIUS; ++dsy)
+                    {
+                        int sy = ty + 1 + dsy;
+                        if (sy < 0 || sy >= height) continue;
+                        for (int dsx = -RADIUS; dsx <= RADIUS; ++dsx)
+                        {
+                            float b = bellB[(dsy + RADIUS) * TS + (dsx + RADIUS)];
+                            if (b == 0.f) continue;
+                            int sxw = ((tx + dsx) % width + width) % width;
+                            int pid = ids[sy * width + sxw];
+                            if (pid != id && pid != idB) continue;
+                            bool thisOc  = m_plates[pid].oceanic;
+                            bool otherOc = (pid == id) ? m_plates[idB].oceanic : m_plates[id].oceanic;
+                            float mod = getModifier(bt, thisOc, otherOc);
+                            if (mod == 0.f) continue;
+                            int tidx = sy * width + sxw;
+                            totalMod[tidx]    += mod * b;
+                            totalWeight[tidx] += b;
+                        }
+                    }
+                }
+            }
         }
-    }
+
+    // Write final elevation: base + normalised accumulated modifier.
+    for (int ty = 0; ty < height; ++ty)
+        for (int tx = 0; tx < width; ++tx)
+        {
+            int   idx  = ty * width + tx;
+            float base = m_plates[ids[idx]].oceanic ? 0.20f : 0.60f;
+            float mod  = totalMod[idx];
+            if (totalWeight[idx] > 1.f) mod /= totalWeight[idx];
+            tileAt(tx, ty).elevation = std::clamp(base + mod, 0.f, 1.f);
+        }
 }
 
 // ---------------------------------------------------------------------------
@@ -711,15 +695,119 @@ void World::applyDetailNoise()
 }
 
 // ---------------------------------------------------------------------------
+// Boundary noise — scatter circular bumps along convergent and divergent
+// chains to break up the smooth ridge and trench surfaces.
+//
+// Sign bias (inverted from intuition):
+//   Convergent ridges  → 70% negative bumps  (ridge is already at peak; bumps carve texture)
+//   Divergent trenches → 70% positive bumps  (trench is already floored; bumps raise the bed)
+//
+// Bumps are placed by walking each chain's arc and stepping a random distance
+// between placements.  A small lateral offset scatters bumps slightly off the
+// boundary spine for a more organic look.
+
+void World::applyBoundaryNoise()
+{
+    const float stride = static_cast<float>(tileSize + 1);
+
+    std::mt19937 rng(seed + 54321);
+    std::uniform_real_distribution<float> distStep   ( 3.f, 10.f);   // tiles between bumps
+    std::uniform_real_distribution<float> distLateral(-3.f,  3.f);   // lateral offset (tiles)
+    std::uniform_real_distribution<float> distRadius ( 4.f,  8.f);   // bump radius (tiles)
+    std::normal_distribution<float>        distDelta  (0.08f, 0.035f); // height magnitude — bell around 0.08, extremes rare
+    std::uniform_real_distribution<float> distSign   (0.f,   1.f);
+
+    for (const auto& chain : m_boundaryChains)
+    {
+        if (chain.type != BoundaryType::Convergent &&
+            chain.type != BoundaryType::Divergent)
+            continue;
+
+        const bool  isConvergent = (chain.type == BoundaryType::Convergent);
+        const auto& pts = chain.points;
+        const int   M   = static_cast<int>(pts.size());
+        if (M < 2) continue;
+
+        float accumulated = 0.f;
+        float nextStep    = distStep(rng);
+
+        for (int i = 0; i + 1 < M; ++i)
+        {
+            // Segment endpoints in tile space
+            float ax = pts[i].x   / stride, ay = pts[i].y   / stride;
+            float bx = pts[i+1].x / stride, by = pts[i+1].y / stride;
+            float dx = bx - ax,  dy = by - ay;
+            float segLen = std::sqrt(dx*dx + dy*dy);
+            if (segLen < 1e-6f) continue;
+
+            float t = 0.f;
+            while (t < segLen)
+            {
+                float remaining = nextStep - accumulated;
+                if (t + remaining >= segLen)
+                {
+                    accumulated += segLen - t;
+                    break;
+                }
+
+                t += remaining;
+                accumulated = 0.f;
+                nextStep = distStep(rng);
+
+                // Bump centre: interpolated chain point + random lateral offset
+                float frac = t / segLen;
+                float cx = ax + frac * dx;
+                float cy = ay + frac * dy;
+
+                // Perpendicular unit vector (rotated 90°)
+                float px = -dy / segLen, py = dx / segLen;
+                float lateral = distLateral(rng);
+                cx += px * lateral;
+                cy += py * lateral;
+
+                float R     = distRadius(rng);
+                float delta = std::clamp(distDelta(rng), 0.01f, 0.15f);
+
+                // Invert sign bias: ridges mostly negative, trenches mostly positive
+                float s = distSign(rng);
+                if (isConvergent)
+                    delta = (s < 0.7f) ? -delta : +delta;
+                else
+                    delta = (s < 0.7f) ? +delta : -delta;
+
+                // Splat circular bump with smooth (1 - d²/R²)² falloff
+                int minTx = std::max(0,          static_cast<int>(cx - R));
+                int maxTx = std::min(width  - 1, static_cast<int>(cx + R) + 1);
+                int minTy = std::max(0,          static_cast<int>(cy - R));
+                int maxTy = std::min(height - 1, static_cast<int>(cy + R) + 1);
+
+                float R2 = R * R;
+                for (int ty = minTy; ty <= maxTy; ++ty)
+                    for (int tx = minTx; tx <= maxTx; ++tx)
+                    {
+                        float ddx  = (tx + 0.5f) - cx;
+                        float ddy  = (ty + 0.5f) - cy;
+                        float d2   = ddx*ddx + ddy*ddy;
+                        if (d2 >= R2) continue;
+                        float fall = 1.f - d2 / R2;
+                        float& e   = tileAt(tx, ty).elevation;
+                        e = std::clamp(e + delta * fall * fall, 0.f, 1.f);
+                    }
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
 // Step 4 — Thermal erosion: material slides downhill when slope exceeds the
 // talus angle.  Double-buffered (read src, write delta) to avoid directional
 // bias.  X wraps for cylindrical continuity.
 
 void World::applyErosion()
 {
-    const int   PASSES = 5;
-    const float TALUS  = 0.04f;   // max stable elevation difference per tile
-    const float RATE   = 0.35f;   // fraction of excess that moves each pass
+    const int   PASSES = 25;
+    const float TALUS  = 0.025f;  // max stable elevation difference per tile
+    const float RATE   = 0.40f;   // fraction of excess that moves each pass
 
     const int ddx[] = { 1, -1,  0,  0 };
     const int ddy[] = { 0,  0,  1, -1 };
@@ -1044,12 +1132,45 @@ void World::drawHeightMap(sf::RenderWindow& window)
         window.draw(*m_heightMapSprite);
 }
 
+void World::bakeTerrainTexture()
+{
+    sf::Image img(sf::Vector2u{ static_cast<unsigned>(width), static_cast<unsigned>(height) });
+
+    for (int y = 0; y < height; ++y)
+        for (int x = 0; x < width; ++x)
+        {
+            const Tile& t = tiles[y * width + x];
+            // Temperature and moisture will be filled by the climate system later;
+            // use neutral placeholders for now so biomes vary by elevation.
+            TerrainType tt = classifyTerrain(t.elevation, 0.5f, 0.5f);
+            img.setPixel({ static_cast<unsigned>(x), static_cast<unsigned>(y) },
+                         terrainColor(tt));
+        }
+
+    m_terrainTexture.loadFromImage(img);
+    m_terrainTexture.setSmooth(false);
+
+    const float scale = static_cast<float>(tileSize + 1);
+    m_terrainSprite.emplace(m_terrainTexture);
+    m_terrainSprite->setScale({ scale, scale });
+}
+
+void World::drawTerrain(sf::RenderWindow& window)
+{
+    if (m_terrainSprite)
+        window.draw(*m_terrainSprite);
+}
+
 void World::draw(sf::RenderWindow& window)
 {
     if (m_renderMode == RenderMode::HeightMap)
     {
         drawHeightMap(window);
         drawBoundaryLines(window);
+    }
+    else if (m_renderMode == RenderMode::Terrain)
+    {
+        drawTerrain(window);
     }
     else
     {

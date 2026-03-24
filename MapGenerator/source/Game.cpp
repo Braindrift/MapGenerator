@@ -6,11 +6,11 @@
 #include <cstring>
 
 Game::Game()
-    : window(sf::VideoMode({ 720, 500 }), "World"),
+    : window(sf::VideoMode({ 1200, 800 }), "World"),
       world(512, 256, 8, 0),
-      panel(720.f * MAP_PANEL_RATIO + 8.f, 16.f),
-      m_camera(sf::Vector2u{ 720, 500 }, MAP_PANEL_RATIO),
-      m_uiView(sf::FloatRect({ 0.f, 0.f }, { 720.f, 500.f })),
+      panel(1200.f * MAP_PANEL_RATIO + 8.f, 16.f),
+      m_camera(sf::Vector2u{ 1200, 800 }, MAP_PANEL_RATIO),
+      m_uiView(sf::FloatRect({ 0.f, 0.f }, { 1200.f, 800.f })),
       m_currentSeed(std::random_device{}())
 {
     ImGui::SFML::Init(window);
@@ -97,6 +97,21 @@ void Game::handleClick(int px, int py)
 {
     sf::Vector2f worldPos = m_camera.screenToWorld({ px, py }, window);
 
+    // Border pick only available in tectonic plate view
+    if (world.getRenderMode() == World::RenderMode::TectonicPlates)
+    {
+        auto borderHit = world.pickBoundary(worldPos);
+        if (borderHit)
+        {
+            m_selectedBoundary = borderHit;
+            world.setSelectedChain(borderHit->chainIdx);
+            panel.clearSelection();
+            return;
+        }
+        m_selectedBoundary.reset();
+        world.setSelectedChain(-1);
+    }
+
     const int stride   = world.getTileSize() + 1;
     const int tileSize = world.getTileSize();
 
@@ -123,7 +138,7 @@ void Game::renderControls()
     const float panelW = sz.x * (1.f - MAP_PANEL_RATIO);
 
     ImGui::SetNextWindowPos(ImVec2(panelX, 150.f), ImGuiCond_Always);
-    ImGui::SetNextWindowSize(ImVec2(panelW, 295.f), ImGuiCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(panelW, 200.f), ImGuiCond_Always);
     ImGui::Begin("Generation", nullptr,
         ImGuiWindowFlags_NoMove |
         ImGuiWindowFlags_NoResize |
@@ -147,6 +162,7 @@ void Game::renderControls()
         }
         world.regenerate(m_currentSeed);
         panel.clearSelection();
+        m_selectedBoundary.reset();
     }
 
     if (ImGui::Button("Random", ImVec2(-1.f, 0.f)))
@@ -155,89 +171,93 @@ void Game::renderControls()
         std::snprintf(m_seedBuffer, sizeof(m_seedBuffer), "%u", m_currentSeed);
         world.regenerate(m_currentSeed);
         panel.clearSelection();
+        m_selectedBoundary.reset();
     }
 
     ImGui::Separator();
-    ImGui::Text("View:");
-
-    const ViewMode current = world.getViewMode();
-
-    auto viewButton = [&](const char* label, ViewMode mode)
-    {
-        if (current == mode)
-        {
-            ImGui::PushStyleColor(ImGuiCol_Button,        ImVec4(0.3f, 0.6f, 0.9f, 1.f));
-            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.4f, 0.7f, 1.0f, 1.f));
-            ImGui::Button(label, ImVec2(-1.f, 0.f));
-            ImGui::PopStyleColor(2);
-        }
-        else if (ImGui::Button(label, ImVec2(-1.f, 0.f)))
-        {
-            world.setViewMode(mode);
-        }
-    };
-
-    viewButton("Terrain",     ViewMode::Terrain);
-    viewButton("Elevation",   ViewMode::Elevation);
-    viewButton("Temperature", ViewMode::Temperature);
-    viewButton("Moisture",    ViewMode::Moisture);
-    viewButton("Plates",      ViewMode::Plates);
+    const bool inHeightMap = (world.getRenderMode() == World::RenderMode::HeightMap);
+    if (ImGui::Button(inHeightMap ? "View: Height Map" : "View: Tectonic Plates", ImVec2(-1.f, 0.f)))
+        world.setRenderMode(inHeightMap ? World::RenderMode::TectonicPlates : World::RenderMode::HeightMap);
 
     ImGui::End();
 
-    // --- World Analysis window ---
-    const float analysisY = 150.f + 295.f + 8.f;
-    ImGui::SetNextWindowPos(ImVec2(panelX, analysisY), ImGuiCond_Always);
-    ImGui::SetNextWindowSize(ImVec2(panelW, 255.f), ImGuiCond_Always);
-    ImGui::Begin("World Analysis", nullptr,
+    // --- Legend ---
+    const float legendY = 150.f + 200.f + 8.f;
+    ImGui::SetNextWindowPos(ImVec2(panelX, legendY), ImGuiCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(panelW, 110.f), ImGuiCond_Always);
+    ImGui::Begin("Boundaries", nullptr,
         ImGuiWindowFlags_NoMove |
         ImGuiWindowFlags_NoResize |
         ImGuiWindowFlags_NoCollapse);
 
-    const WorldStats& s = world.getStats();
+    const ImVec2 swatchSize(14.f, 14.f);
+    ImGui::ColorButton("##conv", ImVec4(1.f, 0.392f, 0.118f, 1.f),
+        ImGuiColorEditFlags_NoTooltip | ImGuiColorEditFlags_NoDragDrop, swatchSize);
+    ImGui::SameLine(); ImGui::Text("Convergent  (collision)");
 
-    auto statRow = [&](const char* label, float value, float refLo, float refHi, const char* refStr)
-    {
-        bool inRange = value >= refLo && value <= refHi;
-        ImVec4 col = inRange ? ImVec4(0.4f, 1.f, 0.4f, 1.f) : ImVec4(1.f, 0.4f, 0.4f, 1.f);
-        ImGui::Text("%-12s", label);
-        ImGui::SameLine();
-        ImGui::TextColored(col, "%5.1f%%", value);
-        ImGui::SameLine();
-        ImGui::TextDisabled("%s", refStr);
-    };
+    ImGui::ColorButton("##div", ImVec4(0.196f, 0.863f, 1.f, 1.f),
+        ImGuiColorEditFlags_NoTooltip | ImGuiColorEditFlags_NoDragDrop, swatchSize);
+    ImGui::SameLine(); ImGui::Text("Divergent   (rift)");
 
-    auto statRowInt = [&](const char* label, int value, int refLo, int refHi, const char* refStr)
-    {
-        bool inRange = value >= refLo && value <= refHi;
-        ImVec4 col = inRange ? ImVec4(0.4f, 1.f, 0.4f, 1.f) : ImVec4(1.f, 0.4f, 0.4f, 1.f);
-        ImGui::Text("%-12s", label);
-        ImGui::SameLine();
-        ImGui::TextColored(col, "%5d  ", value);
-        ImGui::SameLine();
-        ImGui::TextDisabled("%s", refStr);
-    };
-
-    statRow   ("Land",       s.landPercent,            25.f,  35.f,  "[~29%]");
-    statRow   ("Ocean",      s.oceanPercent,            65.f,  75.f,  "[~71%]");
-    statRowInt("Landmasses", s.landmassCount,           4,     9,     "[~7]");
-    statRow   ("Largest",    s.largestLandmassPercent,  8.f,   20.f,  "[~11%]");
-    statRow   ("Mountains",  s.mountainPercent,         4.f,   12.f,  "[~7%]");
-    statRow   ("Tropical",   s.tropicalPercent,         3.f,   9.f,   "[~6%]");
-    statRow   ("Polar",      s.polarPercent,            7.f,   14.f,  "[~10%]");
-
-    ImGui::Separator();
-    if (ImGui::Button("Copy Stats", ImVec2(-1.f, 0.f)))
-    {
-        char buf[256];
-        std::snprintf(buf, sizeof(buf),
-            "Seed:%u Land:%.1f%% Ocean:%.1f%% Landmasses:%d Largest:%.1f%% Mountains:%.1f%% Tropical:%.1f%% Polar:%.1f%%",
-            m_currentSeed,
-            s.landPercent, s.oceanPercent,
-            s.landmassCount, s.largestLandmassPercent,
-            s.mountainPercent, s.tropicalPercent, s.polarPercent);
-        ImGui::SetClipboardText(buf);
-    }
+    ImGui::ColorButton("##tra", ImVec4(0.863f, 1.f, 0.196f, 1.f),
+        ImGuiColorEditFlags_NoTooltip | ImGuiColorEditFlags_NoDragDrop, swatchSize);
+    ImGui::SameLine(); ImGui::Text("Transform   (slide)");
 
     ImGui::End();
+
+    // --- Border debug info (shown when a boundary is selected) ---
+    if (m_selectedBoundary)
+    {
+        const World::BoundaryDebugInfo& b = *m_selectedBoundary;
+
+        const char* typeName =
+            b.type == World::BoundaryType::Convergent ? "Convergent" :
+            b.type == World::BoundaryType::Divergent  ? "Divergent"  :
+            b.type == World::BoundaryType::Transform  ? "Transform"  : "None";
+
+        const float infoY = legendY + 110.f + 8.f;
+        ImGui::SetNextWindowPos(ImVec2(panelX, infoY), ImGuiCond_Always);
+        ImGui::SetNextWindowSize(ImVec2(panelW, 210.f), ImGuiCond_Always);
+        ImGui::Begin("Selected Border", nullptr,
+            ImGuiWindowFlags_NoMove    |
+            ImGuiWindowFlags_NoResize  |
+            ImGuiWindowFlags_NoCollapse);
+
+        ImGui::TextColored(ImVec4(1.f, 0.85f, 0.2f, 1.f), "Type: %s", typeName);
+        float ratio = (b.dotProduct != 0.f) ? b.slideComponent / std::abs(b.dotProduct) : 999.f;
+        ImGui::Text("Perp: %+.3f   Slide: %.3f   Ratio: %.2f", b.dotProduct, b.slideComponent, ratio);
+        ImGui::Separator();
+
+        ImGui::Text("Plate %d", b.plateIdA);
+        ImGui::Text("  drift (%.2f, %.2f)  bearing %.0f deg", b.driftAX, b.driftAY, b.driftAngleA);
+        ImGui::Text("  speed %.2f", b.speedA);
+
+        ImGui::Text("Plate %d", b.plateIdB);
+        ImGui::Text("  drift (%.2f, %.2f)  bearing %.0f deg", b.driftBX, b.driftBY, b.driftAngleB);
+        ImGui::Text("  speed %.2f", b.speedB);
+
+        ImGui::Separator();
+        ImGui::Text("Rel vel  (%.2f, %.2f)", b.relVelX, b.relVelY);
+        ImGui::Text("A->B norm(%.2f, %.2f)", b.normalX,  b.normalY);
+
+        if (ImGui::Button("Copy to clipboard", ImVec2(-1.f, 0.f)))
+        {
+            char buf[512];
+            float ratio2 = (b.dotProduct != 0.f) ? b.slideComponent / std::abs(b.dotProduct) : 999.f;
+            std::snprintf(buf, sizeof(buf),
+                "Type: %s | Perp: %+.3f | Slide: %.3f | Ratio: %.2f\n"
+                "Plate %d: drift(%.2f, %.2f) bearing %.0fdeg speed %.2f\n"
+                "Plate %d: drift(%.2f, %.2f) bearing %.0fdeg speed %.2f\n"
+                "Rel vel: (%.2f, %.2f)\n"
+                "A->B normal: (%.2f, %.2f)",
+                typeName, b.dotProduct, b.slideComponent, ratio2,
+                b.plateIdA, b.driftAX, b.driftAY, b.driftAngleA, b.speedA,
+                b.plateIdB, b.driftBX, b.driftBY, b.driftAngleB, b.speedB,
+                b.relVelX, b.relVelY,
+                b.normalX, b.normalY);
+            ImGui::SetClipboardText(buf);
+        }
+
+        ImGui::End();
+    }
 }

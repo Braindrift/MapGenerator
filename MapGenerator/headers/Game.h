@@ -1,4 +1,5 @@
 #pragma once
+#include <optional>
 #include <SFML/Graphics.hpp>
 #include "World.h"
 #include "InfoPanel.h"
@@ -27,4 +28,6 @@ private:
 
     unsigned int     m_currentSeed;
     char             m_seedBuffer[12];
+
+    std::optional<World::BoundaryDebugInfo> m_selectedBoundary;
 };

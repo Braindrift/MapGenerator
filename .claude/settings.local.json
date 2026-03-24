@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd /c \"call \\\\\"C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\Common7\\\\Tools\\\\VsDevCmd.bat\\\\\" -no_logo && cd /d E:\\\\Projects\\\\ProjectsVS\\\\MapGenerator\\\\MapGenerator\\\\out\\\\build\\\\x64-debug && ninja 2>&1 && echo BUILD_SUCCESS || echo BUILD_FAILED\")",
+      "Bash(cmd /c \"E:\\\\Projects\\\\ProjectsVS\\\\MapGenerator\\\\build.bat\" 2>&1)",
+      "Bash(cmd /c \"E:\\\\Projects\\\\ProjectsVS\\\\MapGenerator\\\\build.bat\")",
+      "Bash(where ninja:*)",
+      "Bash(find /c ninja E:/Projects/ProjectsVS/MapGenerator/MapGenerator/out/build/x64-debug/build.ninja)",
+      "Bash(cmd /c \"set PATH=C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\Common7\\\\IDE\\\\CommonExtensions\\\\Microsoft\\\\CMake\\\\Ninja;%PATH% && ninja --version > C:\\\\Users\\\\Erik\\\\ninja_test.txt 2>&1 && type C:\\\\Users\\\\Erik\\\\ninja_test.txt\" 2>&1)",
+      "Bash(powershell -Command \"\n\\\\$env:MSVC = 'C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.50.35717'\n\\\\$env:PATH = \\\\\"\\\\$env:MSVC\\\\bin\\\\Hostx64\\\\x64;C:\\\\Program Files\\\\Microsoft Visual Studio\\\\18\\\\Community\\\\Common7\\\\IDE\\\\CommonExtensions\\\\Microsoft\\\\CMake\\\\Ninja;\\\\$env:PATH\\\\\"\n\\\\$env:INCLUDE = \\\\\"\\\\$env:MSVC\\\\include;\\\\$env:MSVC\\\\atlmfc\\\\include;C:\\\\Program Files \\(x86\\)\\\\Windows Kits\\\\10\\\\Include\\\\10.0.26100.0\\\\ucrt;C:\\\\Program Files \\(x86\\)\\\\Windows Kits\\\\10\\\\Include\\\\10.0.26100.0\\\\shared;C:\\\\Program Files \\(x86\\)\\\\Windows Kits\\\\10\\\\Include\\\\10.0.26100.0\\\\um\\\\\"\n\\\\$env:LIB = \\\\\"\\\\$env:MSVC\\\\lib\\\\x64;C:\\\\Program Files \\(x86\\)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.26100.0\\\\ucrt\\\\x64;C:\\\\Program Files \\(x86\\)\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.26100.0\\\\um\\\\x64\\\\\"\nSet-Location 'E:\\\\Projects\\\\ProjectsVS\\\\MapGenerator\\\\MapGenerator\\\\out\\\\build\\\\x64-debug'\nninja 2>&1 | Tee-Object -FilePath 'E:\\\\Projects\\\\ProjectsVS\\\\MapGenerator\\\\build_output.txt'\n\" 2>&1)"
+    ]
+  }
+}

@@ -1,7 +1,4 @@
-# CMakeList.txt : CMake project for MapGenerator, include source and define
-# project specific logic here.
-#
-cmake_minimum_required (VERSION 3.5)
+cmake_minimum_required(VERSION 3.5)
 
 project(MapGenerator)
 
@@ -34,13 +31,9 @@ FetchContent_MakeAvailable(ImGui-SFML)
 
 add_executable(MapGenerator
     "source/MapGenerator.cpp"
-    "headers/World.h"
-    "source/World.cpp"
     "source/Game.cpp"
-    "headers/InfoPanel.h"
-    "source/InfoPanel.cpp"
-    "headers/Camera.h"
-    "source/Camera.cpp")
+    "source/World.cpp"
+)
 
 target_link_libraries(MapGenerator
     PRIVATE

@@ -1,0 +1,689 @@
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.0
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+-- The C compiler identification is MSVC 19.38.33145.0
+-- The CXX compiler identification is MSVC 19.38.33145.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found OpenGL: opengl32  found components: OpenGL
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Configuring libogg 1.3.5
+-- Configuring vorbis 1.3.7
+-- Found ImGui v1.91.6 in E:/Projects/ProjectsVS/MapGenerator/MapGenerator/out/build/x64-debug/_deps/imgui-src
+-- Found OpenGL: opengl32
+-- Configuring done (54.8s)
+-- Generating done (0.3s)
+-- Build files have been written to: E:/Projects/ProjectsVS/MapGenerator/MapGenerator/out/build/x64-debug
+[1/224] Building CXX object _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Vector3.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[2/224] Building CXX object _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Vector2.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[3/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Mouse.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[4/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Touch.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[5/224] Building CXX object _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\MemoryInputStream.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[6/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\GlResource.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[7/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Sensor.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[8/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Context.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[9/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Cursor.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[10/224] Building CXX object _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Err.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[11/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Keyboard.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[12/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Clipboard.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[13/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Vulkan.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[14/224] Building CXX object _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\String.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[15/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\VideoMode.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[16/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Joystick.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+[17/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\SensorImpl.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[18/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\JoystickManager.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+[19/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\SensorManager.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[20/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\GlContext.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[21/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\autofit\autofit.c.obj
+[22/224] Building CXX object _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Clock.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[23/224] Building CXX object _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Sleep.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[24/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftbdf.c.obj
+[25/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftbbox.c.obj
+[26/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftbitmap.c.obj
+[27/224] Building CXX object _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\FileInputStream.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[28/224] Building CXX object _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Utils.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[29/224] Building CXX object _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Win32\SleepImpl.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[30/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftbase.c.obj
+[31/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftcid.c.obj
+[32/224] Linking CXX static library _deps\sfml-build\lib\sfml-system-s-d.lib
+[33/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftfstype.c.obj
+[34/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftgxval.c.obj
+[35/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftglyph.c.obj
+[36/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftgasp.c.obj
+[37/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\VideoModeImpl.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[38/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\CursorImpl.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[39/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftinit.c.obj
+[40/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftmm.c.obj
+[41/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftotval.c.obj
+[42/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftpatent.c.obj
+[43/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\fttype1.c.obj
+[44/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftsynth.c.obj
+[45/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftstroke.c.obj
+[46/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftwinfnt.c.obj
+[47/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftpfr.c.obj
+[48/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\VulkanImplWin32.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[49/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\bzip2\ftbzip2.c.obj
+[50/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\lzw\ftlzw.c.obj
+[51/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\bdf\bdf.c.obj
+[52/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\ClipboardImpl.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[53/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\pcf\pcf.c.obj
+[54/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\gzip\ftgzip.c.obj
+[55/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\cache\ftcache.c.obj
+[56/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\cid\type1cid.c.obj
+[57/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\cff\cff.c.obj
+[58/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\pfr\pfr.c.obj
+[59/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\raster\raster.c.obj
+[60/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\sdf\sdf.c.obj
+[61/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\pshinter\pshinter.c.obj
+[62/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\psnames\psnames.c.obj
+[63/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\smooth\smooth.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\smooth\ftgrays.c(1991): warning C4267: '+=': conversion from 'size_t' to 'TCoord', possible loss of data
+[64/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\svg\svg.c.obj
+[65/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\psaux\psaux.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\psaux\t1decode.c(1996): warning C4267: '=': conversion from 'size_t' to 'FT_Int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\psaux\psintrp.c(1005): warning C4267: '=': conversion from 'size_t' to 'FT_Fast', possible loss of data
+[66/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\type1\type1.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\type1\t1driver.c(292): warning C4267: '=': conversion from 'size_t' to 'FT_ULong', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\type1\t1driver.c(313): warning C4267: '=': conversion from 'size_t' to 'FT_ULong', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\type1\t1driver.c(345): warning C4267: '=': conversion from 'size_t' to 'FT_ULong', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\type1\t1driver.c(375): warning C4267: '=': conversion from 'size_t' to 'FT_UInt', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\type1\t1driver.c(584): warning C4267: '=': conversion from 'size_t' to 'FT_ULong', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\type1\t1driver.c(593): warning C4267: '=': conversion from 'size_t' to 'FT_ULong', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\type1\t1driver.c(602): warning C4267: '=': conversion from 'size_t' to 'FT_ULong', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\type1\t1driver.c(611): warning C4267: '=': conversion from 'size_t' to 'FT_ULong', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\type1\t1driver.c(621): warning C4267: '=': conversion from 'size_t' to 'FT_ULong', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\type1\t1load.c(1779): warning C4244: '=': conversion from '__int64' to 'FT_Int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\type1\t1load.c(1953): warning C4244: '=': conversion from '__int64' to 'FT_Int', possible loss of data
+[67/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\winfonts\winfnt.c.obj
+[68/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\sfnt\sfnt.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\sfnt\sfdriver.c(880): warning C4267: '=': conversion from 'size_t' to 'FT_UInt', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\sfnt\sfdriver.c(1032): warning C4244: 'function': conversion from '__int64' to 'const unsigned int', possible loss of data
+[69/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\type42\type42.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\freetype-src\src\type42\t42parse.c(878): warning C4244: '=': conversion from '__int64' to 'FT_Int', possible loss of data
+[70/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\src\truetype\truetype.c.obj
+[71/224] Building C object _deps\ogg-build\CMakeFiles\ogg.dir\src\framing.c.obj
+[72/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\BlendMode.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[73/224] Building RC object _deps\freetype-build\CMakeFiles\freetype.dir\src\base\ftver.rc.res
+[74/224] Building C object _deps\ogg-build\CMakeFiles\ogg.dir\src\bitwise.c.obj
+[75/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\builds\windows\ftdebug.c.obj
+[76/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Window.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[77/224] Building C object _deps\freetype-build\CMakeFiles\freetype.dir\builds\windows\ftsystem.c.obj
+[78/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\WindowBase.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[79/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\StencilMode.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[80/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\WindowImplWin32.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+[81/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderStates.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[82/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\WglContext.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[83/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Glsl.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[84/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\InputImpl.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[85/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\JoystickImpl.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+[86/224] Building CXX object _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\WindowImpl.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+[87/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Transform.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[88/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Transformable.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[89/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\View.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[90/224] Linking CXX static library _deps\sfml-build\lib\sfml-window-s-d.lib
+[91/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\GLExtensions.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[92/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RectangleShape.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[93/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\CircleShape.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[94/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\ConvexShape.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[95/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\VertexArray.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[96/224] Linking C static library _deps\sfml-build\lib\oggd.lib
+[97/224] Linking C static library _deps\sfml-build\lib\freetyped.lib
+[98/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\smallft.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\smallft.c(98): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\smallft.c(99): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\smallft.c(282): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\smallft.c(283): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\smallft.c(852): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\smallft.c(853): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+[99/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\mdct.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\mdct.c(57): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\mdct.c(65): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\mdct.c(66): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\mdct.c(67): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\mdct.c(68): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\mdct.c(71): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\mdct.c(72): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+[100/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\block.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\block.c(863): warning C4244: 'initializing': conversion from 'ogg_int64_t' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\block.c(901): warning C4244: 'initializing': conversion from 'ogg_int64_t' to 'long', possible loss of data
+[101/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\window.c.obj
+[102/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\envelope.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\envelope.c(47): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\envelope.c(64): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\envelope.c(67): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\envelope.c(144): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\envelope.c(126): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+[103/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\lpc.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\lpc.c(129): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+[104/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\lsp.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\lsp.c(252): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\lsp.c(276): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\lsp.c(259): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\lsp.c(350): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\lsp.c(397): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\lsp.c(449): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\lsp.c(452): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+[105/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\GLCheck.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[106/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\analysis.c.obj
+[107/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\synthesis.c.obj
+[108/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\TextureSaver.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[109/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\info.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\info.c(45): warning C4244: '=': conversion from 'long' to 'char', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\info.c(62): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\info.c(94): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\info.c(117): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\info.c(480): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+[110/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderTexture.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[111/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\psy.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(136): warning C4244: 'function': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(138): warning C4244: 'function': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(172): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(173): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(174): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(253): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(258): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(191): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(192): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(216): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(217): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(238): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(273): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(275): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(276): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(289): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(290): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(300): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(324): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(326): warning C4244: 'function': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(346): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(295): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(311): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(335): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(401): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(403): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(570): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(742): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(804): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(810): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(817): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(821): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(925): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(956): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(958): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(979): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(981): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(995): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(993): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(1053): warning C4244: '=': conversion from 'const double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(1131): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(1160): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(1179): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(1181): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(1024): warning C4244: 'initializing': conversion from 'const double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\psy.c(1025): warning C4244: 'initializing': conversion from 'const double' to 'float', possible loss of data
+[112/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\floor1.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\floor1.c(209): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\floor1.c(274): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\floor1.c(498): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\floor1.c(499): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+[113/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Image.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[114/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\floor0.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\floor0.c(125): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\floor0.c(135): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+[115/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\registry.c.obj
+[116/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\res0.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\res0.c(439): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\res0.c(419): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+[117/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\mapping0.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\mapping0.c(264): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\mapping0.c(310): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\mapping0.c(327): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\mapping0.c(385): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+[118/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Font.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[119/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\lookup.c.obj
+[120/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\codebook.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\codebook.c(182): warning C4244: '=': conversion from 'long' to 'char', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\codebook.c(191): warning C4244: '=': conversion from 'long' to 'char', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\codebook.c(213): warning C4244: '=': conversion from 'long' to 'char', possible loss of data
+[121/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\sharedbook.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\sharedbook.c(53): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\sharedbook.c(54): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\sharedbook.c(73): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\sharedbook.c(173): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\sharedbook.c(237): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\sharedbook.c(257): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\sharedbook.c(236): warning C4244: 'initializing': conversion from 'long' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\sharedbook.c(256): warning C4244: 'initializing': conversion from 'long' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\sharedbook.c(370): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+[122/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\bitrate.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\bitrate.c(41): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\bitrate.c(42): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\bitrate.c(43): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\bitrate.c(50): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\bitrate.c(134): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\bitrate.c(82): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\bitrate.c(87): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
+[123/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderWindow.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[124/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\crc.c.obj
+[125/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderTarget.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[126/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\fixed_intrin_avx2.c.obj
+[127/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbis.dir\vorbisenc.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(38): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(38): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(38): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(38): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(38): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(50): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(50): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(50): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(50): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(50): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(247): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(248): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(250): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(230): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(271): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(272): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(273): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(275): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(276): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(277): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(283): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(284): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(285): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(288): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(290): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(291): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(257): warning C4244: 'initializing': conversion from 'const double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(258): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(270): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(281): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(311): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(344): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(345): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(346): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(347): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(348): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(350): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(353): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(337): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(376): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(361): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(387): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(382): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(402): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(409): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(416): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(397): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(428): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(429): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(446): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(528): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(592): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(621): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(658): warning C4244: 'initializing': conversion from 'const double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(659): warning C4244: 'initializing': conversion from 'const double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(660): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(717): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(834): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(840): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(842): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(877): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(913): warning C4305: '+=': truncation from 'double' to 'float'
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(914): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(967): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(969): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(979): warning C4244: '=': conversion from 'long' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(990): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(1074): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(1090): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(1093): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+[128/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Shape.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[129/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Texture.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[130/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Shader.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[131/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\bitreader.c.obj
+[132/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\bitmath.c.obj
+[133/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Sprite.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[134/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\cpu.c.obj
+[135/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\lpc_intrin_neon.c.obj
+[136/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\bitwriter.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\bitwriter.c(127): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+[137/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\lpc_intrin_sse2.c.obj
+[138/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\lpc_intrin_avx2.c.obj
+[139/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\lpc_intrin_fma.c.obj
+[140/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\lpc_intrin_sse41.c.obj
+[141/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\fixed.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\fixed.c(540): warning C4244: '=': conversion from 'const FLAC__int64' to 'FLAC__int32', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\fixed.c(544): warning C4244: '=': conversion from 'const FLAC__int64' to 'FLAC__int32', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\fixed.c(548): warning C4244: '=': conversion from 'const FLAC__int64' to 'FLAC__int32', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\fixed.c(552): warning C4244: '=': conversion from 'const FLAC__int64' to 'FLAC__int32', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\fixed.c(556): warning C4244: '=': conversion from 'const FLAC__int64' to 'FLAC__int32', possible loss of data
+[142/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Text.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[143/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\fixed_intrin_sse2.c.obj
+[144/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\fixed_intrin_ssse3.c.obj
+[145/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\fixed_intrin_sse42.c.obj
+[146/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\VertexBuffer.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[147/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\float.c.obj
+[148/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\format.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\format.c(250): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+[149/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\ogg_encoder_aspect.c.obj
+[150/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\lpc.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\lpc.c(881): warning C4244: '=': conversion from 'FLAC__int64' to 'FLAC__int32', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\lpc.c(935): warning C4244: '=': conversion from 'FLAC__int64' to 'FLAC__int32', possible loss of data
+[151/224] Building RC object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\version.rc.res
+[152/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\ogg_decoder_aspect.c.obj
+[153/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\md5.c.obj
+[154/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\memory.c.obj
+[155/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\metadata_object.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\metadata_object.c(934): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+[156/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\metadata_iterators.c.obj
+[157/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderTextureImplDefault.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[158/224] Linking C static library _deps\sfml-build\lib\vorbisd.lib
+[159/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\ogg_mapping.c.obj
+[160/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\stream_decoder.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\stream_decoder.c(2154): warning C4244: 'initializing': conversion from 'FLAC__uint64' to 'uint32_t', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\stream_decoder.c(2719): warning C4244: '=': conversion from 'FLAC__int64' to 'FLAC__int32', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\stream_decoder.c(2790): warning C4244: '=': conversion from 'FLAC__int64' to 'FLAC__int32', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\stream_decoder.c(2893): warning C4244: '=': conversion from 'FLAC__int64' to 'FLAC__int32', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\stream_decoder.c(3125): warning C4244: '=': conversion from 'FLAC__int64' to 'FLAC__int32', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\stream_decoder.c(3134): warning C4244: '=': conversion from 'FLAC__int64' to 'FLAC__int32', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\stream_decoder.c(3155): warning C4244: '=': conversion from 'FLAC__int64' to 'FLAC__int32', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\stream_decoder.c(3156): warning C4244: '=': conversion from 'FLAC__int64' to 'FLAC__int32', possible loss of data
+[161/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\stream_encoder_intrin_ssse3.c.obj
+[162/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbisfile.dir\vorbisfile.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(71): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(258): warning C4244: 'function': conversion from 'ogg_int64_t' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(276): warning C4244: '=': conversion from 'ogg_int64_t' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(548): warning C4244: 'return': conversion from 'ogg_int64_t' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(569): warning C4244: 'return': conversion from 'ogg_int64_t' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(572): warning C4244: 'return': conversion from 'ogg_int64_t' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(582): warning C4244: 'return': conversion from 'ogg_int64_t' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(644): warning C4244: 'return': conversion from 'ogg_int64_t' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(877): warning C4244: 'function': conversion from 'ogg_int64_t' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(1121): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(1122): warning C4244: 'return': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(1126): warning C4244: 'return': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(1154): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(1763): warning C4244: '=': conversion from 'ogg_int64_t' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(1800): warning C4244: 'initializing': conversion from 'double' to 'ogg_int64_t', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(1830): warning C4244: 'initializing': conversion from 'double' to 'ogg_int64_t', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisfile.c(2169): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+[163/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\stream_encoder_intrin_sse2.c.obj
+[164/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\stream_encoder.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\flac-src\src\libFLAC\stream_encoder.c(1810): warning C4244: 'initializing': conversion from 'double' to 'FLAC__real', possible loss of data
+[165/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\stream_encoder_intrin_avx2.c.obj
+[166/224] Building CXX object _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderTextureImplFBO.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[167/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\stream_encoder_framing.c.obj
+[168/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\__\share\win_utf8_io\win_utf8_io.c.obj
+[169/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\window.c.obj
+[170/224] Building C object _deps\flac-build\src\libFLAC\CMakeFiles\FLAC.dir\ogg_helper.c.obj
+[171/224] Building C object _deps\vorbis-build\lib\CMakeFiles\vorbisenc.dir\vorbisenc.c.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(38): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(38): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(38): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(38): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(38): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(50): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(50): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(50): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(50): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\modes/psych_44.h(50): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(247): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(248): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(250): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(230): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(271): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(272): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(273): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(275): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(276): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(277): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(283): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(284): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(285): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(288): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(290): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(291): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(257): warning C4244: 'initializing': conversion from 'const double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(258): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(270): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(281): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(311): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(344): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(345): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(346): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(347): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(348): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(350): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(353): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(337): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(376): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(361): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(387): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(382): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(402): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(409): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(416): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(397): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(428): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(429): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(446): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(528): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(592): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(621): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(658): warning C4244: 'initializing': conversion from 'const double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(659): warning C4244: 'initializing': conversion from 'const double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(660): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(717): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(834): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(840): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(842): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(877): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(913): warning C4305: '+=': truncation from 'double' to 'float'
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(914): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(967): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(969): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(979): warning C4244: '=': conversion from 'long' to 'float', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(990): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(1074): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(1090): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\out\build\x64-debug\_deps\vorbis-src\lib\vorbisenc.c(1093): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+[172/224] Linking CXX static library _deps\sfml-build\lib\sfml-graphics-s-d.lib
+[173/224] Building CXX object _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\MainWin32.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[174/224] Building CXX object _deps\imgui-sfml-build\CMakeFiles\ImGui-SFML.dir\__\imgui-src\imgui_demo.cpp.obj
+[175/224] Building CXX object _deps\imgui-sfml-build\CMakeFiles\ImGui-SFML.dir\__\imgui-src\imgui_tables.cpp.obj
+[176/224] Building CXX object _deps\imgui-sfml-build\CMakeFiles\ImGui-SFML.dir\__\imgui-src\imgui_draw.cpp.obj
+[177/224] Building CXX object _deps\imgui-sfml-build\CMakeFiles\ImGui-SFML.dir\__\imgui-src\imgui_widgets.cpp.obj
+[178/224] Building CXX object _deps\imgui-sfml-build\CMakeFiles\ImGui-SFML.dir\__\imgui-src\misc\cpp\imgui_stdlib.cpp.obj
+[179/224] Building CXX object _deps\imgui-sfml-build\CMakeFiles\ImGui-SFML.dir\__\imgui-src\imgui.cpp.obj
+[180/224] Building CXX object _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\Win32\SocketImpl.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[181/224] Building CXX object _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\Socket.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[182/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\AudioResource.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[183/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\Listener.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[184/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\Miniaudio.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[185/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\AudioDevice.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[186/224] Building CXX object _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\SocketSelector.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[187/224] Building CXX object _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\Ftp.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[188/224] Building CXX object _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\IpAddress.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[189/224] Building CXX object _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\TcpListener.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[190/224] Building CXX object _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\Http.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[191/224] Building CXX object _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\Packet.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[192/224] Building CXX object CMakeFiles\MapGenerator.dir\source\MapGenerator.cpp.obj
+[193/224] Building CXX object _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\UdpSocket.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[194/224] Building CXX object _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\TcpSocket.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[195/224] Building CXX object _deps\imgui-sfml-build\CMakeFiles\ImGui-SFML.dir\imgui-SFML.cpp.obj
+[196/224] Building CXX object CMakeFiles\MapGenerator.dir\source\Game.cpp.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\source\Game.cpp(16): warning C4834: discarding return value of function with [[nodiscard]] attribute
+[197/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\PlaybackDevice.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[198/224] Building CXX object CMakeFiles\MapGenerator.dir\source\World.cpp.obj
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\source\World.cpp(307): warning C4834: discarding return value of function with [[nodiscard]] attribute
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\source\World.cpp(359): warning C4834: discarding return value of function with [[nodiscard]] attribute
+E:\Projects\ProjectsVS\MapGenerator\MapGenerator\source\World.cpp(458): warning C4834: discarding return value of function with [[nodiscard]] attribute
+[199/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\MiniaudioUtils.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[200/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundSource.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[201/224] Linking C static library _deps\sfml-build\lib\FLACd.lib
+[202/224] Linking C static library _deps\sfml-build\lib\vorbisencd.lib
+[203/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundFileReaderOgg.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[204/224] Linking C static library _deps\sfml-build\lib\vorbisfiled.lib
+[205/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundRecorder.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[206/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundFileReaderFlac.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[207/224] Linking CXX static library _deps\imgui-sfml-build\ImGui-SFML.lib
+[208/224] Linking CXX static library _deps\sfml-build\lib\sfml-main-s-d.lib
+[209/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundFileReaderMp3.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[210/224] Linking CXX static library _deps\sfml-build\lib\sfml-network-s-d.lib
+[211/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\Music.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[212/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundFileReaderWav.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[213/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\Sound.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[214/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundBufferRecorder.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[215/224] Linking CXX executable MapGenerator.exe
+[216/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundBuffer.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[217/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\OutputSoundFile.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[218/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\InputSoundFile.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[219/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundStream.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[220/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundFileWriterFlac.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[221/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundFileFactory.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[222/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundFileWriterWav.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[223/224] Building CXX object _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\SoundFileWriterOgg.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[224/224] Linking CXX static library _deps\sfml-build\lib\sfml-audio-s-d.lib

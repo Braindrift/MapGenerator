@@ -1,124 +1,137 @@
 #pragma once
-#include <optional>
 #include <vector>
+#include <optional>
 #include <SFML/Graphics.hpp>
 #include "Tile.h"
-#include "Terrain.h"
 #include "FastNoiseLite.h"
 
 class World
 {
 public:
-    World(int width, int height, int tileSize, unsigned int seed);
+    World(int width, int height, int tileSize);
 
-    enum class RenderMode { TectonicPlates, HeightMap, Terrain };
-
-    void initialize();
-    void regenerate(unsigned int newSeed);
+    void generate(unsigned int seed);
     void draw(sf::RenderWindow& window);
 
-    void       setRenderMode(RenderMode mode);
-    RenderMode getRenderMode() const;
+    enum class RenderMode { Plates, HeightMap };
+    void       setRenderMode(RenderMode mode) { m_renderMode = mode; }
+    RenderMode getRenderMode() const          { return m_renderMode; }
 
-    int getWidth()    const;
-    int getHeight()   const;
-    int getTileSize() const;
-    const Tile& getTile(int x, int y) const;
+    // Overlays
+    bool showBoundaries = true;
 
-public:
-    enum class BoundaryType { None, Convergent, Divergent, Transform };
+    int   getWidth()    const { return m_width; }
+    int   getHeight()   const { return m_height; }
+    int   getTileSize() const { return m_tileSize; }
+    float pixelWidth()  const { return static_cast<float>(m_width  * (m_tileSize + 1)); }
+    float pixelHeight() const { return static_cast<float>(m_height * (m_tileSize + 1)); }
 
-    // Filled by pickBoundary(); contains everything that drives the classification.
-    struct BoundaryDebugInfo
+    // -------------------------------------------------------------------------
+    // Debug / inspection
+    // -------------------------------------------------------------------------
+    struct Stats
     {
-        int   plateIdA,    plateIdB;
-        float driftAX,     driftAY;      // plate A unit drift vector
-        float driftBX,     driftBY;      // plate B unit drift vector
-        float driftAngleA, driftAngleB;  // compass bearing (0=N 90=E 180=S 270=W)
-        float speedA,      speedB;
-        float relVelX,     relVelY;      // relative velocity (B - A)
-        float normalX,     normalY;      // unit vector A→B
-        float dotProduct;
-        float slideComponent;  // |relVel × normal| — parallel magnitude
-        BoundaryType type;
-        int   chainIdx;   // index into m_boundaryChains; -1 if not found
+        int   plateCount       = 0;
+        int   plateOceanic     = 0;
+        int   plateContinental = 0;
+        int   chainTotal       = 0;
+        int   chainConvergent  = 0;
+        int   chainDivergent   = 0;
+        int   chainTransform   = 0;
+        float genTimeMs        = 0.f;
     };
 
-    std::optional<BoundaryDebugInfo> pickBoundary(sf::Vector2f worldPos) const;
-    void setSelectedChain(int idx);
+    struct HoverInfo
+    {
+        bool  valid     = false;
+        int   tileX     = 0;
+        int   tileY     = 0;
+        int   plateId   = -1;
+        bool  oceanic   = false;
+        bool  isPolar   = false;
+        float elevation = 0.f;
+    };
+
+    const Stats& getStats() const { return m_stats; }
+    HoverInfo    getHoverInfo(sf::Vector2f worldPos) const;
+    void         exportCSV(const std::string& path) const;
 
 private:
-    struct TectonicPlate
+    // -------------------------------------------------------------------------
+    // Tectonic plates
+    // -------------------------------------------------------------------------
+    struct Plate
     {
-        float centerX, centerY;  // normalized [0,1]×[0,1]
-        float driftX,  driftY;   // unit direction vector
-        float speed;             // 0.3–1.0
+        float cx, cy;
+        float dx, dy;
+        float speed;
         bool  oceanic;
-        bool  isPolar = false;   // static polar cap — no drift
+        bool  isPolar = false;
     };
 
-    static constexpr float POLAR_RX = 0.25f;  // half-width of polar cap ellipse (normalized)
-    static constexpr float POLAR_RY = 0.10f;  // height of polar cap ellipse (normalized)
+    // -------------------------------------------------------------------------
+    // Boundary chains
+    // -------------------------------------------------------------------------
+    enum class BoundaryType { Convergent, Divergent, Transform };
 
-    // Result of a continuous-space Voronoi query
-    struct PlateQuery
+    struct BoundaryEdge
     {
-        int   id1, id2;   // nearest and second-nearest plate index
-        float d1,  d2;    // AR-corrected distances
+        sf::Vector2f pos;
+        sf::Vector2f tangent;
+        sf::Vector2f normal;
     };
 
     struct BoundaryChain
     {
-        std::vector<sf::Vector2f> points;
+        std::vector<BoundaryEdge> edges;
         BoundaryType              type;
+        int                       plateA, plateB;
+        float                     compression;
     };
 
-    int          width;
-    int          height;
-    int          tileSize;
-    unsigned int seed;
+    // -------------------------------------------------------------------------
+    // Data
+    // -------------------------------------------------------------------------
+    int          m_width;
+    int          m_height;
+    int          m_tileSize;
+    unsigned int m_seed = 0;
 
-    std::vector<Tile>          tiles;
-    std::vector<TectonicPlate> m_plates;
-    std::vector<BoundaryChain> m_boundaryChains;
+    std::vector<Tile>          m_tiles;
+    std::vector<Plate>         m_plates;
+    std::vector<BoundaryChain> m_chains;
+
     sf::Texture                m_plateTexture;
     std::optional<sf::Sprite>  m_plateSprite;
-    sf::Texture                m_heightMapTexture;
-    std::optional<sf::Sprite>  m_heightMapSprite;
-    sf::Texture                m_terrainTexture;
-    std::optional<sf::Sprite>  m_terrainSprite;
-    sf::Font                   m_font;
 
-    int                        m_selectedChainIdx = -1;
-    RenderMode                 m_renderMode = RenderMode::TectonicPlates;
+    sf::Texture                m_boundaryTexture;
+    std::optional<sf::Sprite>  m_boundarySprite;
 
-    FastNoiseLite              m_warpX;
-    FastNoiseLite              m_warpY;
-    FastNoiseLite              m_jitterNoise;
-    FastNoiseLite              m_detailNoise;
+    sf::Texture                m_heightTexture;
+    std::optional<sf::Sprite>  m_heightSprite;
 
-    Tile&        tileAt(int x, int y);
-    void         initNoise();
-    void         generatePlates();
-    void         assignTilePlates();
-    PlateQuery   queryPlate(float nx, float ny) const;
-    int          plateAt(float nx, float ny)    const;
-    BoundaryType boundaryBetween(int idA, int idB) const;
-    void         buildBoundaryChains();
-    void         bakeToPlateTexture();
-    void         drawBoundaryLines(sf::RenderWindow& window);
-    void         drawPlateArrows(sf::RenderWindow& window);
+    RenderMode    m_renderMode = RenderMode::Plates;
+    Stats         m_stats;
 
-    void         computeElevation();
-    void         smoothElevation(int passes = 2, int radius = 3);
-    void         applyDetailNoise();
-    void         applyBoundaryNoise();
-    void         applyErosion();
-    void         bakeHeightMapTexture();
-    void         drawHeightMap(sf::RenderWindow& window);
-    void         bakeTerrainTexture();
-    void         drawTerrain(sf::RenderWindow& window);
-    void         computeStats();
+    FastNoiseLite m_warpX;
+    FastNoiseLite m_warpY;
+    FastNoiseLite m_strengthNoise;
+
+    // -------------------------------------------------------------------------
+    // Helpers
+    // -------------------------------------------------------------------------
+    Tile&       tileAt(int x, int y)       { return m_tiles[y * m_width + x]; }
+    const Tile& tileAt(int x, int y) const { return m_tiles[y * m_width + x]; }
+
+    void generatePlates();
+    int  nearestPlate(float nx, float ny) const;
+    void assignTilePlates();
+    void buildBoundaryChains();
+    void computeElevation();
+    void bakePlateTexture();
+    void bakeBoundaryOverlay();
+    void bakeHeightTexture();
 
     static sf::Color plateColor(int id);
+    static sf::Color boundaryColor(BoundaryType type);
 };
